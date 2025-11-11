@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="dinput8|Win32">
+      <Configuration>dinput8</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="dinput8|x64">
+      <Configuration>dinput8</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{2de9f02c-c0cf-447a-ae2d-ef4c1f101777}</ProjectGuid>
+    <RootNamespace>clientframework</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>exodia</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='dinput8|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='dinput8|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='dinput8|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='dinput8|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <TargetName>framework</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='dinput8|x64'">
+    <TargetName>framework</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='dinput8|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;WIN32;_CONSOLE;_WINDOWS;_USRDLL;_WIN32_LEAN_AND_MEAN;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;NOMINMAX;_WINSOCKAPI_;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <Optimization>Disabled</Optimization>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>kernel32.lib;winmm.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LinkStatus>true</LinkStatus>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='dinput8|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <CallingConvention>FastCall</CallingConvention>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="source\dependencies\enet\callbacks.c" />
+    <ClCompile Include="source\dependencies\enet\compress.c" />
+    <ClCompile Include="source\dependencies\enet\host.c" />
+    <ClCompile Include="source\dependencies\enet\list.c" />
+    <ClCompile Include="source\dependencies\enet\packet.c" />
+    <ClCompile Include="source\dependencies\enet\peer.c" />
+    <ClCompile Include="source\dependencies\enet\protocol.c" />
+    <ClCompile Include="source\dependencies\enet\win32.c" />
+    <ClCompile Include="source\dependencies\minhook\src\buffer.c" />
+    <ClCompile Include="source\dependencies\minhook\src\hde\hde32.c" />
+    <ClCompile Include="source\dependencies\minhook\src\hde\hde64.c" />
+    <ClCompile Include="source\dependencies\minhook\src\hook.c" />
+    <ClCompile Include="source\dependencies\minhook\src\trampoline.c" />
+    <ClCompile Include="source\DllMain.cpp" />
+    <ClCompile Include="source\Globals.cpp" />
+    <ClCompile Include="source\hooks\functions\LogToConsole.cpp" />
+    <ClCompile Include="source\hooks\functions\SendPacket.cpp" />
+    <ClCompile Include="source\hooks\functions\SendPacketRaw.cpp" />
+    <ClCompile Include="source\hooks\HookManager.cpp" />
+    <ClCompile Include="source\hooks\Struct.cpp" />
+    <ClCompile Include="source\SDK\Boost\Boost.cpp" />
+    <ClCompile Include="source\SDK\Entity\Component\EntityComponent.cpp" />
+    <ClCompile Include="source\SDK\Entity\Component\GameLogicComponent.cpp" />
+    <ClCompile Include="source\SDK\ENet\ENetClient.cpp" />
+    <ClCompile Include="source\SDK\Entity\Entity.cpp" />
+    <ClCompile Include="source\utilities\console\Logger.cpp" />
+    <ClCompile Include="source\utilities\string\StringUtils.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\dependencies\enet\include\callbacks.h" />
+    <ClInclude Include="source\dependencies\enet\include\enet.h" />
+    <ClInclude Include="source\dependencies\enet\include\enet\callbacks.h" />
+    <ClInclude Include="source\dependencies\enet\include\enet\enet.h" />
+    <ClInclude Include="source\dependencies\enet\include\enet\list.h" />
+    <ClInclude Include="source\dependencies\enet\include\enet\protocol.h" />
+    <ClInclude Include="source\dependencies\enet\include\enet\time.h" />
+    <ClInclude Include="source\dependencies\enet\include\enet\types.h" />
+    <ClInclude Include="source\dependencies\enet\include\enet\unix.h" />
+    <ClInclude Include="source\dependencies\enet\include\enet\utility.h" />
+    <ClInclude Include="source\dependencies\enet\include\enet\win32.h" />
+    <ClInclude Include="source\dependencies\enet\include\list.h" />
+    <ClInclude Include="source\dependencies\enet\include\protocol.h" />
+    <ClInclude Include="source\dependencies\enet\include\time2.h" />
+    <ClInclude Include="source\dependencies\enet\include\types.h" />
+    <ClInclude Include="source\dependencies\enet\include\utility.h" />
+    <ClInclude Include="source\dependencies\enet\include\win32.h" />
+    <ClInclude Include="source\dependencies\minhook\include\MinHook.h" />
+    <ClInclude Include="source\dependencies\minhook\src\buffer.h" />
+    <ClInclude Include="source\dependencies\minhook\src\hde\hde32.h" />
+    <ClInclude Include="source\dependencies\minhook\src\hde\hde64.h" />
+    <ClInclude Include="source\dependencies\minhook\src\hde\pstdint.h" />
+    <ClInclude Include="source\dependencies\minhook\src\hde\table32.h" />
+    <ClInclude Include="source\dependencies\minhook\src\hde\table64.h" />
+    <ClInclude Include="source\dependencies\minhook\src\trampoline.h" />
+    <ClInclude Include="source\Globals.h" />
+    <ClInclude Include="source\hooks\functions\Funcs.h" />
+    <ClInclude Include="source\hooks\HookManager.h" />
+    <ClInclude Include="source\hooks\Struct.h" />
+    <ClInclude Include="source\SDK\Boost\Boost.h" />
+    <ClInclude Include="source\SDK\ENet\Packet.h" />
+    <ClInclude Include="source\SDK\Entity\Component\EntityComponent.h" />
+    <ClInclude Include="source\SDK\Entity\Component\GameLogicComponent.h" />
+    <ClInclude Include="source\SDK\ENet\ENetClient.h" />
+    <ClInclude Include="source\SDK\Entity\Entity.h" />
+    <ClInclude Include="source\utilities\console\Logger.h" />
+    <ClInclude Include="source\utilities\string\StringUtils.h" />
+    <ClCompile Include="source\SDK\App\App.cpp" />
+    <ClCompile Include="source\SDK\SDK.cpp" />
+    <ClCompile Include="source\utilities\memory\Module.cpp" />
+    <ClInclude Include="source\SDK\App\App.h" />
+    <ClInclude Include="source\SDK\SDK.h" />
+    <ClInclude Include="source\utilities\memory\Module.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
