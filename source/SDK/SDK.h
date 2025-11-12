@@ -30,10 +30,11 @@ public:
 	App* (__cdecl* GetAppFn)() = NULL;
 
 	// funcs we need
-	void (__cdecl* SendPacketFn)(int, std::string&, ENetPeer*) = NULL;
+	void (__fastcall* SendPacketFn)(int, std::string&, void*) = NULL;
 	void (__fastcall* SendPacketRawFn)(int, unsigned char*, int, void*, ENetPeer*, unsigned int) = NULL;
 	int (__fastcall* LogToConsoleFn)(const char*, ...) = NULL;
 	int (__fastcall* EnetPeerSendFn)(ENetPeer*, enet_uint8, ENetPacket*) = NULL;
+	App* (__fastcall* BaseAppSetFPSLimitFn)(App*, float) = NULL;
 
 private:
 	//

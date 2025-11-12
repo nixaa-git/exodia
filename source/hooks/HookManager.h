@@ -25,5 +25,7 @@ public:
 	hook_t hkSendPacket{};
 	hook_t hkSendPacketRaw{};
 	hook_t hkLogToConsole{};
+	hook_t hkWglSwapBuffers{};
+	hook_t hkBaseAppSetFPSLimit{};
 private:
 };

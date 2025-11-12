@@ -28,8 +28,15 @@ void SDK::SetupFunctions()
 	this->SendPacketRawFn = m_procModule.FindPattern("4C 89 4C 24 ? 44 89 44 24 ? 48 89 54 24 ? 89 4C 24", "SendPacketRaw").Get<decltype(SendPacketRawFn)>();
 	this->LogToConsoleFn = m_procModule.FindPattern("E8 ? ? ? ? 32 C0 48 83 C4 ? C3 B9", "LogToConsole").Relative().Get<decltype(LogToConsoleFn)>();
 	this->GetAppFn = m_procModule.FindPattern("E8 ? ? ? ? 44 88 A0 ? ? ? ? E9", "GetApp").Relative().Get<decltype(GetAppFn)>();
+	this->BaseAppSetFPSLimitFn = m_procModule.FindPattern("E8 ? ? ? ? E8 ? ? ? ? 83 E8 ? 74", "BaseApp::SetFPSLimit").Relative().Get<decltype(BaseAppSetFPSLimitFn)>();
 
 	std::printf("SDK Finished setting up game functions.\n");
+
+	if (GetAppFn && BaseAppSetFPSLimitFn)
+	{
+		BaseAppSetFPSLimitFn(GetAppFn(), 0.f);
+		::printf("FPS Unlocked!\n");
+	}
 }
 
 void SDK::SendPacket(int type, const std::string& genericText)

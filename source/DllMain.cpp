@@ -1,6 +1,8 @@
 #define WIN32_LEAN_AND_MEAN
 #define _WINSOCKAPI_
 
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
 #include <Windows.h>
 #include <iostream>
 
@@ -59,6 +61,7 @@ BOOL APIENTRY DllMain(HMODULE module, DWORD reason, LPVOID param)
 	case DLL_PROCESS_ATTACH:
 	{
 		g_pGlobals->m_procModule = module;
+		g_pGlobals->m_hwnd = FindWindowA("AppClass", "Growtopia");
 		CreateThread(NULL, NULL, LPTHREAD_START_ROUTINE(OnInject), NULL, NULL, NULL);
 		return true;
 	}
