@@ -26,8 +26,10 @@ void SDK::SetupFunctions()
 {
 	this->SendPacketFn = m_procModule.FindPattern("4C 89 44 24 ? 48 89 54 24 ? 89 4C 24", "SendPacket").Get<decltype(SendPacketFn)>();
 	this->SendPacketRawFn = m_procModule.FindPattern("4C 89 4C 24 ? 44 89 44 24 ? 48 89 54 24 ? 89 4C 24", "SendPacketRaw").Get<decltype(SendPacketRawFn)>();
+	this->EnetPeerSendFn = m_procModule.FindPattern("E8 ? ? ? ? 90 EB ? 8B 84 24", "enet_peer_send").Relative().Get<decltype(EnetPeerSendFn)>();
 	this->LogToConsoleFn = m_procModule.FindPattern("E8 ? ? ? ? 32 C0 48 83 C4 ? C3 B9", "LogToConsole").Relative().Get<decltype(LogToConsoleFn)>();
 	this->GetAppFn = m_procModule.FindPattern("E8 ? ? ? ? 44 88 A0 ? ? ? ? E9", "GetApp").Relative().Get<decltype(GetAppFn)>();
+	this->GetENetClientFn = m_procModule.FindPattern("E8 ? ? ? ? 89 74 24 28", "GetENetClient").Relative().Get<decltype(GetENetClientFn)>();
 	this->BaseAppSetFPSLimitFn = m_procModule.FindPattern("E8 ? ? ? ? E8 ? ? ? ? 83 E8 ? 74", "BaseApp::SetFPSLimit").Relative().Get<decltype(BaseAppSetFPSLimitFn)>();
 
 	std::printf("SDK Finished setting up game functions.\n");
@@ -41,13 +43,13 @@ void SDK::SetupFunctions()
 
 void SDK::SendPacket(int type, const std::string& genericText)
 {
-	App* pApp = this->GetAppFn();
-	if (!pApp)
+	if (!this->GetENetClientFn)
 	{
+		::printf("SDK::SendPacket() : SDK::GetENetClientFn is nullptr!!\n");
 		return;
 	}
 
-	ENetClient* pClient = pApp->m_pENetClient;
+	ENetClient* pClient = this->GetENetClientFn();
 	if (!pClient)
 	{
 		return;
@@ -58,13 +60,13 @@ void SDK::SendPacket(int type, const std::string& genericText)
 		return;
 	}
 
-	ENetPacket* pkt = enet_packet_create(NULL, 5 + genericText.length(), ENET_PACKET_FLAG_RELIABLE);
+	ENetPacket* pkt = enet_packet_create(NULL, genericText.length() + 5, ENET_PACKET_FLAG_RELIABLE);
 	::memcpy(pkt->data, &type, sizeof(int));
 	::memcpy(pkt->data + sizeof(int), genericText.c_str(), genericText.length());
 
-	this->EnetPeerSendFn(pClient->m_peer, NULL, pkt);
+	this->EnetPeerSendFn(pClient->m_peer, 0, pkt);
 
-	::free(pkt);
+	//::free(pkt);
 }
 
 void SDK::SendPacketRaw(int type, unsigned char* pData, unsigned int dataLen, int enetFlag)

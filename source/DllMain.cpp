@@ -36,6 +36,12 @@ void OnInject()
 			std::printf("App: %llX\nENetClient: %llX && m_peer: %llX\n", pApp, pApp->m_pENetClient);
 			Sleep(100);
 		}
+		else if (GetAsyncKeyState(VK_F3) & 1)
+		{
+			SDK::Get()->SendPacket(2, "action|input\ntext|exodia ontop omg!");
+
+			Sleep(100);
+		}
 
 		Sleep(10);
 	}
