@@ -68,7 +68,13 @@ void Gui::DrawMenu()
 
 	if (ImGui::Button("send text input"))
 	{
-		SDK::Get()->SendPacket(2, "action|input\ntext|test packet sending");
+		std::string thaPkt = "action|input\ntext|test packet sending";
+		SDK::Get()->SendPacketFn(2, thaPkt, (void*)SDK::Get()->GetENetClientFn()->m_peer);
+	}
+
+	if (ImGui::Button("log to console test"))
+	{
+		SDK::Get()->LogToConsoleFn("test log wow did it work??");
 	}
 
 	ImGui::Text("wow text");
