@@ -66,7 +66,10 @@ void Gui::DrawMenu()
 {
 	ImGui::Begin("Exodia", &this->m_bShowMenu);
 
-	ImGui::Button("wow button");
+	if (ImGui::Button("send text input"))
+	{
+		SDK::Get()->SendPacket(2, "action|input\ntext|test packet sending");
+	}
 
 	ImGui::Text("wow text");
 
