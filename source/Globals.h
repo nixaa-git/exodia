@@ -18,6 +18,7 @@ extern "C"
 
 #include <Windows.h>
 #include "SDK/SDK.h"
+#include "gui/TextEditor.h"
 
 class Globals
 {
@@ -25,6 +26,8 @@ public:
 	HMODULE m_procModule{};
 	HWND m_hwnd{};
 	WNDPROC m_gameWndProc{};
+
+	TextEditor m_textEditor{};
 
 	bool m_bShouldUnload = false;
 };

@@ -101,6 +101,7 @@
     <TargetName>framework</TargetName>
     <LinkIncremental>true</LinkIncremental>
     <LibraryPath>C:\Users\User\Documents\coding2026\exodia\source\dependencies\enet\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='dinput8|x64'">
     <TargetName>framework</TargetName>
@@ -213,6 +214,40 @@
     <ClCompile Include="source\dependencies\imgui\imgui_tables.cpp" />
     <ClCompile Include="source\dependencies\imgui\imgui_widgets.cpp" />
     <ClCompile Include="source\dependencies\kiero\kiero.cpp" />
+    <ClCompile Include="source\dependencies\lua\lapi.c" />
+    <ClCompile Include="source\dependencies\lua\lauxlib.c" />
+    <ClCompile Include="source\dependencies\lua\lbaselib.c" />
+    <ClCompile Include="source\dependencies\lua\lcode.c" />
+    <ClCompile Include="source\dependencies\lua\lcorolib.c" />
+    <ClCompile Include="source\dependencies\lua\lctype.c" />
+    <ClCompile Include="source\dependencies\lua\ldblib.c" />
+    <ClCompile Include="source\dependencies\lua\ldebug.c" />
+    <ClCompile Include="source\dependencies\lua\ldo.c" />
+    <ClCompile Include="source\dependencies\lua\ldump.c" />
+    <ClCompile Include="source\dependencies\lua\lfunc.c" />
+    <ClCompile Include="source\dependencies\lua\lgc.c" />
+    <ClCompile Include="source\dependencies\lua\linit.c" />
+    <ClCompile Include="source\dependencies\lua\liolib.c" />
+    <ClCompile Include="source\dependencies\lua\llex.c" />
+    <ClCompile Include="source\dependencies\lua\lmathlib.c" />
+    <ClCompile Include="source\dependencies\lua\lmem.c" />
+    <ClCompile Include="source\dependencies\lua\loadlib.c" />
+    <ClCompile Include="source\dependencies\lua\lobject.c" />
+    <ClCompile Include="source\dependencies\lua\lopcodes.c" />
+    <ClCompile Include="source\dependencies\lua\loslib.c" />
+    <ClCompile Include="source\dependencies\lua\lparser.c" />
+    <ClCompile Include="source\dependencies\lua\lstate.c" />
+    <ClCompile Include="source\dependencies\lua\lstring.c" />
+    <ClCompile Include="source\dependencies\lua\lstrlib.c" />
+    <ClCompile Include="source\dependencies\lua\ltable.c" />
+    <ClCompile Include="source\dependencies\lua\ltablib.c" />
+    <ClCompile Include="source\dependencies\lua\ltests.c" />
+    <ClCompile Include="source\dependencies\lua\ltm.c" />
+    <ClCompile Include="source\dependencies\lua\lua.c" />
+    <ClCompile Include="source\dependencies\lua\lundump.c" />
+    <ClCompile Include="source\dependencies\lua\lutf8lib.c" />
+    <ClCompile Include="source\dependencies\lua\lvm.c" />
+    <ClCompile Include="source\dependencies\lua\lzio.c" />
     <ClCompile Include="source\dependencies\minhook\src\buffer.c" />
     <ClCompile Include="source\dependencies\minhook\src\hde\hde32.c" />
     <ClCompile Include="source\dependencies\minhook\src\hde\hde64.c" />
@@ -221,6 +256,9 @@
     <ClCompile Include="source\DllMain.cpp" />
     <ClCompile Include="source\Globals.cpp" />
     <ClCompile Include="source\gui\Gui.cpp" />
+    <ClCompile Include="source\gui\lua functions\LuaFunctions.cpp" />
+    <ClCompile Include="source\gui\tabs\LuaTab.cpp" />
+    <ClCompile Include="source\gui\TextEditor.cpp" />
     <ClCompile Include="source\hooks\functions\BaseApp_SetFPSLimit.cpp" />
     <ClCompile Include="source\hooks\functions\LogToConsole.cpp" />
     <ClCompile Include="source\hooks\functions\render\EndScene.cpp" />
@@ -266,6 +304,35 @@
     <ClInclude Include="source\dependencies\imgui\imstb_textedit.h" />
     <ClInclude Include="source\dependencies\imgui\imstb_truetype.h" />
     <ClInclude Include="source\dependencies\kiero\kiero.h" />
+    <ClInclude Include="source\dependencies\lua\lapi.h" />
+    <ClInclude Include="source\dependencies\lua\lauxlib.h" />
+    <ClInclude Include="source\dependencies\lua\lcode.h" />
+    <ClInclude Include="source\dependencies\lua\lctype.h" />
+    <ClInclude Include="source\dependencies\lua\ldebug.h" />
+    <ClInclude Include="source\dependencies\lua\ldo.h" />
+    <ClInclude Include="source\dependencies\lua\lfunc.h" />
+    <ClInclude Include="source\dependencies\lua\lgc.h" />
+    <ClInclude Include="source\dependencies\lua\ljumptab.h" />
+    <ClInclude Include="source\dependencies\lua\llex.h" />
+    <ClInclude Include="source\dependencies\lua\llimits.h" />
+    <ClInclude Include="source\dependencies\lua\lmem.h" />
+    <ClInclude Include="source\dependencies\lua\lobject.h" />
+    <ClInclude Include="source\dependencies\lua\lopcodes.h" />
+    <ClInclude Include="source\dependencies\lua\lopnames.h" />
+    <ClInclude Include="source\dependencies\lua\lparser.h" />
+    <ClInclude Include="source\dependencies\lua\lprefix.h" />
+    <ClInclude Include="source\dependencies\lua\lstate.h" />
+    <ClInclude Include="source\dependencies\lua\lstring.h" />
+    <ClInclude Include="source\dependencies\lua\ltable.h" />
+    <ClInclude Include="source\dependencies\lua\ltests.h" />
+    <ClInclude Include="source\dependencies\lua\ltm.h" />
+    <ClInclude Include="source\dependencies\lua\lua.h" />
+    <ClInclude Include="source\dependencies\lua\Lua.hpp" />
+    <ClInclude Include="source\dependencies\lua\luaconf.h" />
+    <ClInclude Include="source\dependencies\lua\lualib.h" />
+    <ClInclude Include="source\dependencies\lua\lundump.h" />
+    <ClInclude Include="source\dependencies\lua\lvm.h" />
+    <ClInclude Include="source\dependencies\lua\lzio.h" />
     <ClInclude Include="source\dependencies\minhook\include\MinHook.h" />
     <ClInclude Include="source\dependencies\minhook\src\buffer.h" />
     <ClInclude Include="source\dependencies\minhook\src\hde\hde32.h" />
@@ -276,6 +343,8 @@
     <ClInclude Include="source\dependencies\minhook\src\trampoline.h" />
     <ClInclude Include="source\Globals.h" />
     <ClInclude Include="source\gui\Gui.h" />
+    <ClInclude Include="source\gui\lua functions\LuaFunctions.h" />
+    <ClInclude Include="source\gui\TextEditor.h" />
     <ClInclude Include="source\hooks\functions\Funcs.h" />
     <ClInclude Include="source\hooks\HookManager.h" />
     <ClInclude Include="source\hooks\Struct.h" />

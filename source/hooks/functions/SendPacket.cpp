@@ -6,7 +6,7 @@ void __fastcall hkSendPacketFn(int messageType, std::string& genericText, void* 
 {
 	static auto orig = reinterpret_cast<decltype(SDK::Get()->SendPacketFn)>(HookManager::Get()->hkSendPacket.m_origFn);
 
-	std::printf("SendPacket called! %s\n", genericText.c_str(), pPeer);
+	std::printf("SendPacket called! %s\n", genericText.c_str());
 
 	orig(messageType, genericText, pPeer);
 }

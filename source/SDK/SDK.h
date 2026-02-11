@@ -7,6 +7,8 @@
 #include "App/App.h"
 #include "ENet/Packet.h"
 
+#include "../dependencies/lua/Lua.hpp"
+
 class SDK
 {
 public:
@@ -37,6 +39,9 @@ public:
 	ENetPacket* (__fastcall* EnetPacketCreateFn)(__int64, __int64, int) = NULL;
 	int (__fastcall* EnetPeerSendFn)(ENetPeer*, enet_uint8, ENetPacket*) = NULL;
 	App* (__fastcall* BaseAppSetFPSLimitFn)(App*, float) = NULL;
+
+	// our lua state
+	lua_State* m_pLuaState = NULL;
 
 private:
 	//

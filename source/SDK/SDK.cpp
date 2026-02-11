@@ -19,6 +19,8 @@ bool SDK::Initialize()
 
 	this->SetupFunctions();
 
+	m_pLuaState = luaL_newstate();
+
 	return true;
 }
 
@@ -69,7 +71,8 @@ void SDK::SendPacket(int type, const std::string& genericText)
 	this->EnetPeerSendFn(pClient->m_peer, 0, pkt);
 	*/
 
-	this->SendPacket(type, genericText, (void*)pClient->m_peer);
+	std::string strCopy = genericText;
+	this->SendPacketFn(type, strCopy, (void*)pClient->m_peer);
 }
 
 void SDK::SendPacketRaw(int type, unsigned char* pData, unsigned int dataLen, int enetFlag)

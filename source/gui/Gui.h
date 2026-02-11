@@ -16,6 +16,11 @@
 //
 //#endif // !_EXODIA_RENDERING_OPENGL
 
+enum class GuiTab
+{
+	EXECUTOR = 1,
+};
+
 class Gui
 {
 public:
@@ -31,6 +36,12 @@ public:
 	void SetupStyle();
 	void DrawMenu();
 
+	/*
+	~~~ tabs ~~~
+	*/
+	void DrawLuaTab(); // first arg will be SDK lua state ptr?
+	//
+
 //#ifdef _EXODIA_RENDERING_OPENGL
 	void RenderForOpenGL(HDC hdc);
 //#elif _EXODIA_RENDERING_DX9
@@ -39,5 +50,6 @@ public:
 
 	bool m_bDidInit = false;
 	bool m_bShowMenu = true;
+	bool m_currentTab = 1;
 private:
 };

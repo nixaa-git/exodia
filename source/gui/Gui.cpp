@@ -66,6 +66,8 @@ void Gui::DrawMenu()
 {
 	ImGui::Begin("Exodia", &this->m_bShowMenu);
 
+	/*
+
 	if (ImGui::Button("send text input"))
 	{
 		std::string thaPkt = "action|input\ntext|test packet sending";
@@ -76,8 +78,19 @@ void Gui::DrawMenu()
 	{
 		SDK::Get()->LogToConsoleFn("test log wow did it work??");
 	}
+	*/
 
-	ImGui::Text("wow text");
+	// todo ~~ buttons and tab switch here.
+
+	switch ((GuiTab)m_currentTab)
+	{
+		case GuiTab::EXECUTOR:
+		{
+			this->DrawLuaTab();
+		} break;
+	}
+
+	//ImGui::Text("wow text");
 
 	ImGui::End();
 }

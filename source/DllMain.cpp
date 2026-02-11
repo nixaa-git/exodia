@@ -33,7 +33,7 @@ void OnInject()
 			App* pApp = SDK::Get()->GetAppFn();
 			if (!pApp) continue;
 
-			std::printf("App: %llX\nENetClient: %llX && m_peer: %llX\n", pApp, pApp->m_pENetClient);
+			std::printf("App: %llX\nENetClient: %llX && m_peer: %llX\n", pApp, pApp->m_pENetClient, pApp->m_pENetClient->m_peer);
 			Sleep(100);
 		}
 		else if (GetAsyncKeyState(VK_F3) & 1)
