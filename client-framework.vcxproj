@@ -13,6 +13,14 @@
       <Configuration>dinput8</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="Release64|Win32">
+      <Configuration>Release64</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release64|x64">
+      <Configuration>Release64</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Release|Win32">
       <Configuration>Release</Configuration>
       <Platform>Win32</Platform>
@@ -41,6 +49,12 @@
     <PlatformToolset>v145</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release64|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='dinput8|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
@@ -55,6 +69,12 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release64|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v145</PlatformToolset>
@@ -81,6 +101,9 @@
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release64|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='dinput8|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
@@ -88,6 +111,9 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release64|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='dinput8|x64'" Label="PropertySheets">
@@ -100,13 +126,33 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <TargetName>framework</TargetName>
     <LinkIncremental>true</LinkIncremental>
-    <LibraryPath>C:\Users\User\Documents\coding2026\exodia\source\dependencies\enet\lib;$(LibraryPath)</LibraryPath>
-    <IncludePath>$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\User\Documents\coding2026\exodia\source\dependencies\angelscript\lib;C:\Users\User\Documents\coding2026\exodia\source\dependencies\enet\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\User\Documents\coding2026\exodia\source\dependencies\angelscript\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release64|x64'">
+    <TargetName>framework</TargetName>
+    <LinkIncremental>true</LinkIncremental>
+    <LibraryPath>C:\Users\User\Documents\coding2026\exodia\source\dependencies\angelscript\lib;C:\Users\User\Documents\coding2026\exodia\source\dependencies\enet\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\User\Documents\coding2026\exodia\source\dependencies\angelscript\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='dinput8|x64'">
     <TargetName>framework</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_ITERATOR_DEBUG_LEVEL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release64|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
@@ -154,6 +200,29 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_RELEASE;_HAS_AUTO_PTR_ETC=1;WIN32;_CONSOLE;_WINDOWS;_USRDLL;_WIN32_LEAN_AND_MEAN;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;NOMINMAX;_WINSOCKAPI_;_ITERATOR_DEBUG_LEVEL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <Optimization>Disabled</Optimization>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OmitFramePointers>false</OmitFramePointers>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>kernel32.lib;winmm.lib;ws2_32.lib;opengl32.lib;enet.lib;angelscript64.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LinkStatus>true</LinkStatus>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release64|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_HAS_AUTO_PTR_ETC=1;WIN32;_CONSOLE;_WINDOWS;_USRDLL;_WIN32_LEAN_AND_MEAN;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;NOMINMAX;_WINSOCKAPI_;_ITERATOR_DEBUG_LEVEL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
@@ -168,7 +237,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>kernel32.lib;winmm.lib;ws2_32.lib;opengl32.lib;enet.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>kernel32.lib;winmm.lib;ws2_32.lib;opengl32.lib;enet.lib;angelscript64.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LinkStatus>true</LinkStatus>
     </Link>
   </ItemDefinitionGroup>
@@ -203,9 +272,29 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>angelscript64.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\dependencies\angelscript\add_on\contextmgr\contextmgr.cpp" />
+    <ClCompile Include="source\dependencies\angelscript\add_on\datetime\datetime.cpp" />
+    <ClCompile Include="source\dependencies\angelscript\add_on\debugger\debugger.cpp" />
+    <ClCompile Include="source\dependencies\angelscript\add_on\scriptany\scriptany.cpp" />
+    <ClCompile Include="source\dependencies\angelscript\add_on\scriptarray\scriptarray.cpp" />
+    <ClCompile Include="source\dependencies\angelscript\add_on\scriptbuilder\scriptbuilder.cpp" />
+    <ClCompile Include="source\dependencies\angelscript\add_on\scriptdictionary\scriptdictionary.cpp" />
+    <ClCompile Include="source\dependencies\angelscript\add_on\scriptfile\scriptfile.cpp" />
+    <ClCompile Include="source\dependencies\angelscript\add_on\scriptfile\scriptfilesystem.cpp" />
+    <ClCompile Include="source\dependencies\angelscript\add_on\scriptgrid\scriptgrid.cpp" />
+    <ClCompile Include="source\dependencies\angelscript\add_on\scripthandle\scripthandle.cpp" />
+    <ClCompile Include="source\dependencies\angelscript\add_on\scripthelper\scripthelper.cpp" />
+    <ClCompile Include="source\dependencies\angelscript\add_on\scriptmath\scriptmath.cpp" />
+    <ClCompile Include="source\dependencies\angelscript\add_on\scriptmath\scriptmathcomplex.cpp" />
+    <ClCompile Include="source\dependencies\angelscript\add_on\scriptsocket\scriptsocket.cpp" />
+    <ClCompile Include="source\dependencies\angelscript\add_on\scriptstdstring\scriptstdstring.cpp" />
+    <ClCompile Include="source\dependencies\angelscript\add_on\scriptstdstring\scriptstdstring_utils.cpp" />
+    <ClCompile Include="source\dependencies\angelscript\add_on\serializer\serializer.cpp" />
+    <ClCompile Include="source\dependencies\angelscript\add_on\weakref\weakref.cpp" />
     <ClCompile Include="source\dependencies\imgui\backends\imgui_impl_opengl2.cpp" />
     <ClCompile Include="source\dependencies\imgui\backends\imgui_impl_win32.cpp" />
     <ClCompile Include="source\dependencies\imgui\imgui.cpp" />
@@ -255,8 +344,10 @@
     <ClCompile Include="source\dependencies\minhook\src\trampoline.c" />
     <ClCompile Include="source\DllMain.cpp" />
     <ClCompile Include="source\Globals.cpp" />
+    <ClCompile Include="source\gui\angelscript functions\AngelScriptFunctions.cpp" />
     <ClCompile Include="source\gui\Gui.cpp" />
     <ClCompile Include="source\gui\lua functions\LuaFunctions.cpp" />
+    <ClCompile Include="source\gui\tabs\AngelScriptTab.cpp" />
     <ClCompile Include="source\gui\tabs\LuaTab.cpp" />
     <ClCompile Include="source\gui\TextEditor.cpp" />
     <ClCompile Include="source\hooks\functions\BaseApp_SetFPSLimit.cpp" />
@@ -277,6 +368,26 @@
     <ClCompile Include="source\utilities\string\StringUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="source\dependencies\angelscript\add_on\autowrapper\aswrappedcall.h" />
+    <ClInclude Include="source\dependencies\angelscript\add_on\contextmgr\contextmgr.h" />
+    <ClInclude Include="source\dependencies\angelscript\add_on\datetime\datetime.h" />
+    <ClInclude Include="source\dependencies\angelscript\add_on\debugger\debugger.h" />
+    <ClInclude Include="source\dependencies\angelscript\add_on\scriptany\scriptany.h" />
+    <ClInclude Include="source\dependencies\angelscript\add_on\scriptarray\scriptarray.h" />
+    <ClInclude Include="source\dependencies\angelscript\add_on\scriptbuilder\scriptbuilder.h" />
+    <ClInclude Include="source\dependencies\angelscript\add_on\scriptdictionary\scriptdictionary.h" />
+    <ClInclude Include="source\dependencies\angelscript\add_on\scriptfile\scriptfile.h" />
+    <ClInclude Include="source\dependencies\angelscript\add_on\scriptfile\scriptfilesystem.h" />
+    <ClInclude Include="source\dependencies\angelscript\add_on\scriptgrid\scriptgrid.h" />
+    <ClInclude Include="source\dependencies\angelscript\add_on\scripthandle\scripthandle.h" />
+    <ClInclude Include="source\dependencies\angelscript\add_on\scripthelper\scripthelper.h" />
+    <ClInclude Include="source\dependencies\angelscript\add_on\scriptmath\scriptmath.h" />
+    <ClInclude Include="source\dependencies\angelscript\add_on\scriptmath\scriptmathcomplex.h" />
+    <ClInclude Include="source\dependencies\angelscript\add_on\scriptsocket\scriptsocket.h" />
+    <ClInclude Include="source\dependencies\angelscript\add_on\scriptstdstring\scriptstdstring.h" />
+    <ClInclude Include="source\dependencies\angelscript\add_on\serializer\serializer.h" />
+    <ClInclude Include="source\dependencies\angelscript\add_on\weakref\weakref.h" />
+    <ClInclude Include="source\dependencies\angelscript\include\angelscript.h" />
     <ClInclude Include="source\dependencies\enet\include\callbacks.h" />
     <ClInclude Include="source\dependencies\enet\include\enet.h" />
     <ClInclude Include="source\dependencies\enet\include\enet\callbacks.h" />
@@ -342,6 +453,7 @@
     <ClInclude Include="source\dependencies\minhook\src\hde\table64.h" />
     <ClInclude Include="source\dependencies\minhook\src\trampoline.h" />
     <ClInclude Include="source\Globals.h" />
+    <ClInclude Include="source\gui\angelscript functions\AngelScriptFunctions.h" />
     <ClInclude Include="source\gui\Gui.h" />
     <ClInclude Include="source\gui\lua functions\LuaFunctions.h" />
     <ClInclude Include="source\gui\TextEditor.h" />
@@ -362,6 +474,9 @@
     <ClInclude Include="source\SDK\App\App.h" />
     <ClInclude Include="source\SDK\SDK.h" />
     <ClInclude Include="source\utilities\memory\Module.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="source\dependencies\angelscript\lib\angelscript64.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

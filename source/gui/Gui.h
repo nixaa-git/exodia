@@ -18,7 +18,8 @@
 
 enum class GuiTab
 {
-	EXECUTOR = 1,
+	LUA_EXECUTOR = 1,
+	ANGELSCRIPT_EXECUTOR = 2,
 };
 
 class Gui
@@ -40,6 +41,7 @@ public:
 	~~~ tabs ~~~
 	*/
 	void DrawLuaTab(); // first arg will be SDK lua state ptr?
+	void DrawAngelScriptTab();
 	//
 
 //#ifdef _EXODIA_RENDERING_OPENGL
@@ -50,6 +52,6 @@ public:
 
 	bool m_bDidInit = false;
 	bool m_bShowMenu = true;
-	bool m_currentTab = 1;
+	int m_currentTab = 2;
 private:
 };

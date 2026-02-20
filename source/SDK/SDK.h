@@ -8,6 +8,7 @@
 #include "ENet/Packet.h"
 
 #include "../dependencies/lua/Lua.hpp"
+#include <angelscript.h>
 
 class SDK
 {
@@ -24,6 +25,7 @@ public:
 	// helper functions for sending packets and variants if we wanted
 	void SendPacket(int type, const std::string& genericText);
 	void SendPacketRaw(int type, unsigned char* pData, unsigned int dataLen, int enetFlag = ENET_PACKET_FLAG_RELIABLE);
+	void SendVariant(void* pVarlist); // todo ~~
 
 	c_module m_procModule = c_module(nullptr); // public access so we can use ::FindPattern() from outside
 

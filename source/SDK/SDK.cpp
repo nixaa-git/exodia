@@ -94,8 +94,10 @@ void SDK::SendPacketRaw(int type, unsigned char* pData, unsigned int dataLen, in
 		return;
 	}
 
-	ENetPacket* pkt = enet_packet_create(pData, dataLen, enetFlag);
-	this->EnetPeerSendFn(pClient->m_peer, NULL, pkt);
+	this->SendPacketRawFn(type, pData, dataLen, NULL, pClient->m_peer, enetFlag);
 
-	::free(pkt);
+	//ENetPacket* pkt = enet_packet_create(pData, dataLen, enetFlag);
+	//this->EnetPeerSendFn(pClient->m_peer, NULL, pkt);
+
+	//::free(pkt);
 }

@@ -84,9 +84,13 @@ void Gui::DrawMenu()
 
 	switch ((GuiTab)m_currentTab)
 	{
-		case GuiTab::EXECUTOR:
+		case GuiTab::LUA_EXECUTOR:
 		{
 			this->DrawLuaTab();
+		} break;
+		case GuiTab::ANGELSCRIPT_EXECUTOR:
+		{
+			this->DrawAngelScriptTab();
 		} break;
 	}
 
