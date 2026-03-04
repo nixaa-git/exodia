@@ -1,5 +1,6 @@
 #include "Gui.h"
 #include "../Globals.h"
+#include "MuseoFont.h"
 
 void Gui::Initialize()
 {
@@ -11,6 +12,9 @@ void Gui::Initialize()
 	GetWindowRect(g_pGlobals->m_hwnd, &WinSize);
 
 	this->SetupStyle();
+
+	//io.Fonts[0].AddFontFromMemoryTTF(museo900_binary, sizeof(museo900_binary), 14.5f);
+	//io.Fonts[1].AddFontFromMemoryTTF(museo500_binary, sizeof(museo500_binary), 14.5f);
 
 	m_bDidInit = true;
 }
@@ -66,19 +70,7 @@ void Gui::DrawMenu()
 {
 	ImGui::Begin("Exodia", &this->m_bShowMenu);
 
-	/*
-
-	if (ImGui::Button("send text input"))
-	{
-		std::string thaPkt = "action|input\ntext|test packet sending";
-		SDK::Get()->SendPacketFn(2, thaPkt, (void*)SDK::Get()->GetENetClientFn()->m_peer);
-	}
-
-	if (ImGui::Button("log to console test"))
-	{
-		SDK::Get()->LogToConsoleFn("test log wow did it work??");
-	}
-	*/
+	//ImGui::BeginChild("")
 
 	// todo ~~ buttons and tab switch here.
 
@@ -93,8 +85,6 @@ void Gui::DrawMenu()
 			this->DrawAngelScriptTab();
 		} break;
 	}
-
-	//ImGui::Text("wow text");
 
 	ImGui::End();
 }
@@ -142,7 +132,7 @@ void Gui::RenderForOpenGL(HDC hdc)
 	
 	ImGui::EndFrame();
 	ImGui::Render();
-	//static int screenX = GetSystemMetrics(SM_CXSCREEN), screenY = GetSystemMetrics(SM_CYSCREEN);
+
 	ImGui_ImplOpenGL2_RenderDrawData(ImGui::GetDrawData());
 
 	if (!wglMakeCurrent(hdc, aWglContext))

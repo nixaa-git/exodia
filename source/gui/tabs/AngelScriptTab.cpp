@@ -3,15 +3,8 @@
 #include "../Gui.h"
 #include "../../SDK/SDK.h"
 
-// angel script
-#include "../../dependencies/angelscript/add_on/scriptstdstring/scriptstdstring.h"
-#include "../../dependencies/angelscript/add_on/scripthelper/scripthelper.h"
-#include "../../dependencies/angelscript/add_on/scriptarray/scriptarray.h"
-
 // func decls
 #include "../angelscript functions/AngelScriptFunctions.h"
-
-asIScriptEngine* asEngine{};
 
 void MessageCallback(const asSMessageInfo* msg, void* param)
 {
@@ -36,7 +29,10 @@ void InitAngelScript()
 		return;
 	}
 
-	asEngine = asCreateScriptEngine();
+	Gui::Get()->asEngine = asCreateScriptEngine();
+	
+
+	auto asEngine = Gui::Get()->asEngine;
 	assert(asEngine);
 
 	int r;
@@ -64,12 +60,33 @@ void InitAngelScript()
 
 	assert(r >= 0);
 
+	r = asEngine->RegisterGlobalFunction(
+		"void SendPacket(int type, const string &in)",
+		asFUNCTION(AS_SendPacket),
+		asCALL_CDECL
+	);
+
+	assert(r >= 0);
+
+	r = asEngine->RegisterFuncdef("void SendPacketCallback(int, const string &in)");
+
+	assert(r >= 0);
+
+	r = asEngine->RegisterGlobalFunction(
+		"void AddCallback(const string &in, SendPacketCallback @)",
+		asFUNCTION(AS_AddCallback),
+		asCALL_CDECL
+	);
+
+	assert(r >= 0);
+
 	auto langDef = TextEditor::LanguageDefinition::AngelScript();
 
 	TextEditor::Identifier tid{};
 	langDef.mIdentifiers.insert_or_assign({ "print" }, tid);
 	langDef.mIdentifiers.insert_or_assign({ "LogToConsole" }, tid);
 	langDef.mIdentifiers.insert_or_assign({ "SendPacket" }, tid);
+	langDef.mIdentifiers.insert_or_assign({ "AddCallback" }, tid);
 
 	g_pGlobals->m_textEditor.SetLanguageDefinition(langDef);
 	g_pGlobals->m_textEditor.SetText("void main()\n{\n\tLogToConsole(\"exodia\");\n}");
@@ -79,6 +96,8 @@ void InitAngelScript()
 
 void RunScript(const std::string& code)
 {
+	auto asEngine = Gui::Get()->asEngine;
+
 	if (!asEngine)
 	{
 		printf("Engine not initialized!\n");
@@ -131,6 +150,30 @@ void Gui::DrawAngelScriptTab()
 
 			RunScript(g_pGlobals->m_textEditor.GetText());
 		}
+
+		/*
+
+		ImGui::SameLine();
+
+		if (ImGui::Button("create dummy world"))
+		{
+			auto sdk = SDK::Get();
+
+			void* pWorld = sdk->WorldConstructorFn(operator new(0x150C0));
+
+			if (!pWorld)
+			{
+				std::printf("pWorld was nullptr\n");
+				return;
+			}
+			else
+			{
+				std::printf("pWorld at %llX\n", pWorld);
+			}
+
+			sdk->GameLogicComponent_CreateDummyWorldForTestingFn(pWorld);
+		}
+		*/
 	}
 	ImGui::EndChild();
 

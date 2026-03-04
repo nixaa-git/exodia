@@ -10,6 +10,9 @@
 #include "../dependencies/imgui/backends/imgui_impl_opengl2.h"
 #include <GL/gl.h>
 
+// fwd decl
+class asIScriptEngine;
+
 //#elif _EXODIA_RENDERING_DX9
 //
 //#include "../dependencies/imgui/backends/imgui_impl_dx9.h"
@@ -53,5 +56,8 @@ public:
 	bool m_bDidInit = false;
 	bool m_bShowMenu = true;
 	int m_currentTab = 2;
+
+	asIScriptEngine* asEngine{};
+
 private:
 };

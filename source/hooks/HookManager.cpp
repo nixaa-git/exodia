@@ -34,12 +34,12 @@ void HookManager::SetupHooks()
 	}
 
 	this->hkSendPacket.Setup(sdk->SendPacketFn, hkSendPacketFn, "SendPacket");
-	this->hkSendPacketRaw.Setup(sdk->SendPacketRawFn, hkSendPacketRawFn, "SendPacketRaw");
-	this->hkLogToConsole.Setup(sdk->LogToConsoleFn, hkLogToConsoleFn, "LogToConsole");
-	this->hkBaseAppSetFPSLimit.Setup(sdk->BaseAppSetFPSLimitFn, hkBaseAppSetFPSLimitFn, "BaseApp::SetFPSLimit");
-	this->hkWglSwapBuffers.Setup((void*)GetProcAddress(GetModuleHandleA("opengl32.dll"), "wglSwapBuffers"), wglSwapBuffersFn, "wglSwapBuffers");
+	//this->hkSendPacketRaw.Setup(sdk->SendPacketRawFn, hkSendPacketRawFn, "SendPacketRaw");
+	//this->hkLogToConsole.Setup(sdk->LogToConsoleFn, hkLogToConsoleFn, "LogToConsole");
+	//this->hkBaseAppSetFPSLimit.Setup(sdk->BaseAppSetFPSLimitFn, hkBaseAppSetFPSLimitFn, "BaseApp::SetFPSLimit");
+	//this->hkWglSwapBuffers.Setup((void*)GetProcAddress(GetModuleHandleA("opengl32.dll"), "wglSwapBuffers"), wglSwapBuffersFn, "wglSwapBuffers");
 
 	MH_EnableHook(NULL); // this enables all current hooks
 
-	g_pGlobals->m_gameWndProc = reinterpret_cast<WNDPROC>(SetWindowLongPtr(g_pGlobals->m_hwnd, GWLP_WNDPROC, (LONG_PTR)hkWndProc));
+	//g_pGlobals->m_gameWndProc = reinterpret_cast<WNDPROC>(SetWindowLongPtr(g_pGlobals->m_hwnd, GWLP_WNDPROC, (LONG_PTR)hkWndProc));
 }
