@@ -38,7 +38,7 @@ void OnInject()
 		}
 		else if (GetAsyncKeyState(VK_F3) & 1)
 		{
-			SDK::Get()->SendPacket(2, "action|input\ntext|exodia ontop omg!");
+			SDK::Get()->SendPacket(2, "action|input\n|text|exodia ontop omg!");
 
 			Sleep(100);
 		}

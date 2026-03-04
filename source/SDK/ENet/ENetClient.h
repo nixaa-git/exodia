@@ -8,7 +8,7 @@
 class ENetClient
 {
 public:
-	char pad1[144];
+	char pad1[200];
 	ENetPeer* m_peer;
 };
 
