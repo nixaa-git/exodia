@@ -5,19 +5,24 @@
 #include "../dependencies/imgui/backends/imgui_impl_win32.h"
 
 // macro for if the gt version we target uses opengl vs dx9
-//#ifdef _EXODIA_RENDERING_OPENGL
+
+/*
+#ifdef _EXODIA_RENDERING_OPENGL
 
 #include "../dependencies/imgui/backends/imgui_impl_opengl2.h"
 #include <GL/gl.h>
+*/
+
+//#elif _EXODIA_RENDERING_DX9
+
+#include "../dependencies/imgui/backends/imgui_impl_dx9.h"
+#include <d3d9.h>
+
+//#endif // !_EXODIA_RENDERING_OPENGL
 
 // fwd decl
 class asIScriptEngine;
 
-//#elif _EXODIA_RENDERING_DX9
-//
-//#include "../dependencies/imgui/backends/imgui_impl_dx9.h"
-//
-//#endif // !_EXODIA_RENDERING_OPENGL
 
 enum class GuiTab
 {
@@ -50,7 +55,7 @@ public:
 //#ifdef _EXODIA_RENDERING_OPENGL
 	void RenderForOpenGL(HDC hdc);
 //#elif _EXODIA_RENDERING_DX9
-//	void RenderForDX9();
+	void RenderForDX9(LPDIRECT3DDEVICE9 pDevice);
 //#endif
 
 	bool m_bDidInit = false;

@@ -296,7 +296,7 @@
     <ClCompile Include="source\dependencies\angelscript\add_on\scriptstdstring\scriptstdstring_utils.cpp" />
     <ClCompile Include="source\dependencies\angelscript\add_on\serializer\serializer.cpp" />
     <ClCompile Include="source\dependencies\angelscript\add_on\weakref\weakref.cpp" />
-    <ClCompile Include="source\dependencies\imgui\backends\imgui_impl_opengl2.cpp" />
+    <ClCompile Include="source\dependencies\imgui\backends\imgui_impl_dx9.cpp" />
     <ClCompile Include="source\dependencies\imgui\backends\imgui_impl_win32.cpp" />
     <ClCompile Include="source\dependencies\imgui\imgui.cpp" />
     <ClCompile Include="source\dependencies\imgui\imgui_demo.cpp" />
@@ -352,9 +352,9 @@
     <ClCompile Include="source\gui\tabs\LuaTab.cpp" />
     <ClCompile Include="source\gui\TextEditor.cpp" />
     <ClCompile Include="source\hooks\functions\BaseApp_SetFPSLimit.cpp" />
+    <ClCompile Include="source\hooks\functions\GameLogicComponent_ProcessTankUpdatePacket.cpp" />
     <ClCompile Include="source\hooks\functions\LogToConsole.cpp" />
     <ClCompile Include="source\hooks\functions\render\EndScene.cpp" />
-    <ClCompile Include="source\hooks\functions\render\wglSwapBuffers.cpp" />
     <ClCompile Include="source\hooks\functions\render\WndProcHandler.cpp" />
     <ClCompile Include="source\hooks\functions\SendPacket.cpp" />
     <ClCompile Include="source\hooks\functions\SendPacketRaw.cpp" />
@@ -365,6 +365,7 @@
     <ClCompile Include="source\SDK\Entity\Component\GameLogicComponent.cpp" />
     <ClCompile Include="source\SDK\ENet\ENetClient.cpp" />
     <ClCompile Include="source\SDK\Entity\Entity.cpp" />
+    <ClCompile Include="source\SDK\Renderer\Renderer.cpp" />
     <ClCompile Include="source\utilities\console\Logger.cpp" />
     <ClCompile Include="source\utilities\string\StringUtils.cpp" />
   </ItemGroup>
@@ -407,7 +408,7 @@
     <ClInclude Include="source\dependencies\enet\include\types.h" />
     <ClInclude Include="source\dependencies\enet\include\utility.h" />
     <ClInclude Include="source\dependencies\enet\include\win32.h" />
-    <ClInclude Include="source\dependencies\imgui\backends\imgui_impl_opengl2.h" />
+    <ClInclude Include="source\dependencies\imgui\backends\imgui_impl_dx9.h" />
     <ClInclude Include="source\dependencies\imgui\backends\imgui_impl_win32.h" />
     <ClInclude Include="source\dependencies\imgui\imconfig.h" />
     <ClInclude Include="source\dependencies\imgui\imgui.h" />
@@ -467,6 +468,7 @@
     <ClInclude Include="source\SDK\Entity\Component\GameLogicComponent.h" />
     <ClInclude Include="source\SDK\ENet\ENetClient.h" />
     <ClInclude Include="source\SDK\Entity\Entity.h" />
+    <ClInclude Include="source\SDK\Renderer\Renderer.h" />
     <ClInclude Include="source\utilities\console\Logger.h" />
     <ClInclude Include="source\utilities\string\StringUtils.h" />
     <ClCompile Include="source\SDK\App\App.cpp" />

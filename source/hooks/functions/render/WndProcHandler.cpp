@@ -7,8 +7,11 @@ extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg
 
 LRESULT hkWndProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
 {
+	/*
 	if (ImGui_ImplWin32_WndProcHandler(hwnd, msg, wparam, lparam))
 		return true;
+
+
 
 	bool mouse =
 		msg == WM_LBUTTONDOWN ||
@@ -20,6 +23,7 @@ LRESULT hkWndProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
 	ImGuiIO io = ImGui::GetIO();
 	if (io.WantTextInput || (io.WantCaptureKeyboard && mouse))
 		return true;
+	*/
 
 	return CallWindowProcW(g_pGlobals->m_gameWndProc, hwnd, msg, wparam, lparam);
 }

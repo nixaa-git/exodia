@@ -1,6 +1,7 @@
 #include "Funcs.h"
 #include "../../Globals.h"
 #include "../HookManager.h"
+#include <cstdio>
 
 void __fastcall hkSendPacketRawFn(int type, unsigned char* pData, int szData, void* pPacketSender, ENetPeer* pPeer, unsigned int enetFlags)
 {
@@ -26,6 +27,12 @@ void __fastcall hkSendPacketRawFn(int type, unsigned char* pData, int szData, vo
 		case NET_GAME_PACKET_PING_REPLY:
 		{
 			::printf("Client sending ping reply\n");
+		} break;
+		case NET_GAME_PACKET_BATTLE_JOIN:
+		case NET_GAME_PACKET_BATTLE_EVENT:
+		{
+			pkt->m_data = (uint8_t*)std::malloc(900);
+			pkt->m_data_size = 900;
 		} break;
 	}
 

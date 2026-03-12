@@ -89,7 +89,9 @@ void Gui::DrawMenu()
 	ImGui::End();
 }
 
-#ifdef _EXODIA_RENDERING_OPENGL
+//#ifdef _EXODIA_RENDERING_OPENGL
+
+/*
 void Gui::RenderForOpenGL(HDC hdc)
 {
 	static bool bInittedOpenGL = false;
@@ -141,11 +143,31 @@ void Gui::RenderForOpenGL(HDC hdc)
 		return;
 	}
 }
+*/
 
-#elif _EXODIA_RENDERING_DX9
-void Gui::RenderForDX9()
+//#elif _EXODIA_RENDERING_DX9
+void Gui::RenderForDX9(LPDIRECT3DDEVICE9 pDevice)
 {
+	static bool bInittedDx9 = false;
 
+	if (!bInittedDx9)
+	{
+		ImGui_ImplWin32_Init(g_pGlobals->m_hwnd);
+		ImGui_ImplDX9_Init(pDevice);
+
+		bInittedDx9 = true;
+	}
+
+	ImGui_ImplDX9_NewFrame();
+	ImGui_ImplWin32_NewFrame();
+	ImGui::NewFrame();
+
+	this->DrawMenu();
+
+	ImGui::EndFrame();
+	ImGui::Render();
+
+	ImGui_ImplDX9_RenderDrawData(ImGui::GetDrawData());
 }
 
-#endif // !_EXODIA_RENDERING_OPENGL
+//#endif // !_EXODIA_RENDERING_OPENGL

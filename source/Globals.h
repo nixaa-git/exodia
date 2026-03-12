@@ -8,8 +8,10 @@
 *  !!!!IMPORTANT !!!!
 */
 
-#define _EXODIA_RENDERING_OPENGL 1
-#define _EXODIA_RENDERING_DX9 0
+#define KIERO_INCLUDE_D3D9   1 // 1 if you need D3D9 hook
+
+#define _EXODIA_RENDERING_OPENGL 0
+#define _EXODIA_RENDERING_DX9 1
 
 extern "C"
 {
@@ -19,6 +21,7 @@ extern "C"
 #include <Windows.h>
 #include "SDK/SDK.h"
 #include "gui/TextEditor.h"
+#include "SDK/Renderer/Renderer.h"
 
 class Globals
 {

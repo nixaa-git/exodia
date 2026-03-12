@@ -67,7 +67,10 @@ BOOL APIENTRY DllMain(HMODULE module, DWORD reason, LPVOID param)
 	case DLL_PROCESS_ATTACH:
 	{
 		g_pGlobals->m_procModule = module;
-		g_pGlobals->m_hwnd = FindWindowA("AppClass", "Growtopia");
+		g_pGlobals->m_hwnd = g_pGlobals->m_hwnd =
+			FindWindowA("AppClass", "Growtopia")
+			? FindWindowA("AppClass", "Growtopia")
+			: FindWindowA("AppClass", "Crowtopia");
 		CreateThread(NULL, NULL, LPTHREAD_START_ROUTINE(OnInject), NULL, NULL, NULL);
 		return true;
 	}
