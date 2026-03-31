@@ -131,6 +131,27 @@ void Gui::DrawAngelScriptTab()
 
 			RunScript(g_pGlobals->m_textEditor.GetText());
 		}
+
+		if (ImGui::Button("print app stuff"))
+		{
+			auto sdk = SDK::Get();
+
+			auto itemMgr = sdk->GetItemInfoManagerFn();
+
+			if (!itemMgr)
+			{
+				std::printf("itemMgr was nullptr. failed\n");
+				return;
+			}
+
+			std::printf("%d items in vec.\n", itemMgr->m_itemInfo.size());
+			for (int i = 2; i < 4; i++)
+			{
+				ItemInfo& item = itemMgr->m_itemInfo[i];
+				std::printf("item %d is %s, some info %s\n", i, item.m_displayName.c_str(), item.m_secondaryTexture.c_str());
+
+			}
+		}
 	}
 	ImGui::EndChild();
 

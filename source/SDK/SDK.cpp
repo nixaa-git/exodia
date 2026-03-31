@@ -31,9 +31,10 @@ void SDK::SetupFunctions()
 	this->EnetPacketCreateFn = m_procModule.FindPattern("E8 ? ? ? ? 48 89 44 24 20 48 8B 44 24 20 48 8B 40 10", "enet_packet_create").Get<decltype(EnetPacketCreateFn)>();
 	this->EnetPeerSendFn = m_procModule.FindPattern("E8 ? ? ? ? 90 48 83 C4 38 5F", "enet_peer_send").Relative().Get<decltype(EnetPeerSendFn)>();
 	this->LogToConsoleFn = m_procModule.FindPattern("E8 ? ? ? ? 32 C0 48 83 C4 ? C3 B9", "LogToConsole").Relative().Get<decltype(LogToConsoleFn)>();
-	this->GetAppFn = m_procModule.FindPattern("E8 ? ? ? ? 44 88 A0 ? ? ? ? E9", "GetApp").Relative().Get<decltype(GetAppFn)>();
+	this->GetAppFn = m_procModule.FindPattern("E8 ? ? ? ? 48 8B C8 44 0F B6 C3 8B D6", "GetApp").Relative().Get<decltype(GetAppFn)>();
 	this->GetENetClientFn = m_procModule.FindPattern("E8 ? ? ? ? 89 74 24 28", "GetENetClient").Relative().Get<decltype(GetENetClientFn)>();
-	this->BaseAppSetFPSLimitFn = m_procModule.FindPattern("E8 ? ? ? ? E8 ? ? ? ? 83 E8 ? 74", "BaseApp::SetFPSLimit").Relative().Get<decltype(BaseAppSetFPSLimitFn)>();
+	this->GetItemInfoManagerFn = m_procModule.FindPattern("E8 ? ? ? ? 48 8B C8 8B D3 E8 ? ? ? ? 48 8B 5C 24 20", "GetItemInfoManager").Relative().Get<decltype(GetItemInfoManagerFn)>();
+	this->BaseAppSetFPSLimitFn = m_procModule.FindPattern("E8 ? ? ? ? E8 ? ? ? ? 8D 48 FE", "BaseApp::SetFPSLimit").Relative().Get<decltype(BaseAppSetFPSLimitFn)>();
 
 	std::printf("SDK Finished setting up game functions.\n");
 
@@ -58,7 +59,7 @@ void SDK::SendPacket(int type, const std::string& genericText)
 		return;
 	}
 
-	if (!pClient->m_peer)
+	if (!pClient->peer)
 	{
 		return;
 	}
@@ -72,7 +73,7 @@ void SDK::SendPacket(int type, const std::string& genericText)
 	*/
 
 	std::string strCopy = genericText;
-	this->SendPacketFn(type, strCopy, (void*)pClient->m_peer);
+	this->SendPacketFn(type, strCopy, (void*)pClient->peer);
 }
 
 void SDK::SendPacketRaw(int type, unsigned char* pData, unsigned int dataLen, int enetFlag)
@@ -89,12 +90,12 @@ void SDK::SendPacketRaw(int type, unsigned char* pData, unsigned int dataLen, in
 		return;
 	}
 
-	if (!pClient->m_peer)
+	if (!pClient->peer)
 	{
 		return;
 	}
 
-	this->SendPacketRawFn(type, pData, dataLen, NULL, pClient->m_peer, enetFlag);
+	this->SendPacketRawFn(type, pData, dataLen, NULL, pClient->peer, enetFlag);
 
 	//ENetPacket* pkt = enet_packet_create(pData, dataLen, enetFlag);
 	//this->EnetPeerSendFn(pClient->m_peer, NULL, pkt);

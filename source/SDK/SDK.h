@@ -33,6 +33,7 @@ public:
 	// getters
 	App* (__cdecl* GetAppFn)() = NULL;
 	ENetClient* (__cdecl* GetENetClientFn)() = NULL;
+	ItemInfoManager* (__fastcall* GetItemInfoManagerFn)() = NULL;
 
 	// funcs we need
 	void (__fastcall* SendPacketFn)(int, std::string&, void*) = NULL;
