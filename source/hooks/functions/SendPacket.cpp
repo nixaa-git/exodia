@@ -61,7 +61,10 @@ void __fastcall hkSendPacketFn(int messageType, std::string& genericText, void* 
         return;
     }
 
-	std::printf("SendPacket called! %s\n", genericText.c_str());
+    if (messageType != 8)
+    {
+	    std::printf("SendPacket called! %s\n", genericText.c_str());
+    }
 
 	orig(messageType, genericText, pPeer);
 }

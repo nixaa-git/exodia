@@ -151,6 +151,37 @@ void Gui::DrawAngelScriptTab()
 			RunScript(g_pGlobals->m_textEditor.GetText());
 		}
 
+		ImGui::SameLine();
+
+		if (ImGui::Button("send log response long string"))
+		{
+			auto sdk = SDK::Get();
+
+			//std::string thaPayloadOnSumGangstaShi = "xdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxd";
+			std::string thaPayloadOnSumGangstaShi = "🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\nt🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\nt🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\nt🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\nt🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\nt🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\nt🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\nt🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\nt🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\nt🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\nt🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\nt🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\n🥸😊😂🤣😂😊😒😂👍👌😁😍😂\nt";
+			std::string nigger = "";
+
+			for (int i = 0; i < 1000; i++)
+			{
+				nigger += thaPayloadOnSumGangstaShi;
+			}
+
+			sdk->SendPacket(8, nigger);
+			//sdk->SendPacket(8, thaPayloadOnSumGangstaShi);
+
+			/*
+			std::thread([&sdk, &thaPayloadOnSumGangstaShi]() {
+
+				for (int i = 0; i < 1000; i++)
+				{
+					Sleep(250);
+					sdk->SendPacket(8, thaPayloadOnSumGangstaShi);
+				}
+
+			}).detach();
+			*/
+		}
+
 		/*
 
 		ImGui::SameLine();
