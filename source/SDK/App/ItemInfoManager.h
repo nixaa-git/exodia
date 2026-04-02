@@ -95,6 +95,7 @@ enum eItemImageStorage : __int32
 	ITEM_IMAGE_STORAGE_SMART_EDGE_DIAGON = 0xA,
 };
 
+#pragma pack(push, 1)
 struct GrowInfo
 {
 	unsigned __int8 m_seedBaseImageFrame;
@@ -220,8 +221,9 @@ class ItemInfoManager
 public:
 	void* vftable;
 	std::vector<ItemInfo> m_itemInfo;
-	char pad2[0x69];
+	char pad2[0x68];
 };
+#pragma pack(pop)
 
-static_assert(sizeof(ItemInfo) != 0x798);
-static_assert(sizeof(ItemInfoManager) != 0x88);
+static_assert(sizeof(ItemInfo) == 0x798);
+static_assert(sizeof(ItemInfoManager) == 0x88);

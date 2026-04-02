@@ -136,6 +136,33 @@ void Gui::DrawAngelScriptTab()
 		{
 			auto sdk = SDK::Get();
 
+			auto pWorld = sdk->GetGameLogicFn()->m_pWorld;
+			if (pWorld)
+			{
+				std::printf("pWorld valid ptr, %s\n", pWorld->m_name.c_str());
+
+				Tile* pLock = pWorld->m_tiles.GetTileAtPos({ 55, 22 });
+				if (!pLock)
+				{
+					std::printf("failed to find tile at 55, 22\n");
+					return;
+				}
+
+				NetAvatar* pAvatar = sdk->GetGameLogicFn()->m_pLocalPlayer;
+				if (pAvatar)
+				{
+					std::printf("name: %s . my pos is %d, %d\n", pAvatar->m_name.c_str(), (int)pAvatar->m_vPos.x / 32, (int)pAvatar->m_vPos.y / 32);
+				}
+
+
+				std::printf("pLock is fg %d, bg %d, has tile extra: %d\n", pLock->m_itemID, pLock->m_itemBGID, pLock->m_pTileExtra != nullptr ? 1 : 0);
+
+				if (pLock->m_pTileExtra)
+				{
+					std::printf("lock owner is %d\n", pLock->m_pTileExtra->m_ownerID);
+				
+			}
+
 			auto itemMgr = sdk->GetItemInfoManagerFn();
 
 			if (!itemMgr)

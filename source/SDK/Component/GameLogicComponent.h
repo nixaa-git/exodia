@@ -4,6 +4,7 @@
 #include "../App/NetObjectManager.h"
 #include "EntityComponent.h"
 #include "../Clanlib/Clanlib.h"
+#include "../App/NetAvatar.h"
 
 #include <map>
 
@@ -45,7 +46,7 @@ public:
 	NetObjectManager m_objectManager;
 	int m_fakeNetID;
 	int pad4;
-	void* m_pLocalPlayer;
+	NetAvatar* m_pLocalPlayer;
 	char m_textManager[0x30];
 	std::unique_ptr<void*> m_hudIndicatorManager;
 	char m_items[0xB8];

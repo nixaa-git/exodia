@@ -10,17 +10,20 @@
 #include "WorldTileMap.h"
 #include "WorldObjectMap.h"
 
+#pragma pack(push, 1)
 class World
 {
 public:
 	bool XboxLiveExclusive;
+	char pad1[0x1];
 	unsigned __int16 m_version;
+	int pad2;
 	BoostSignal TileRemoved;
 	BoostSignal TileAdded;
 	std::unordered_map<int, Tile*> tilesByItemId;
 	WorldTileMap m_tiles;
 	WorldObjectMap m_objects;
-	std::unique_ptr<void*> mDungeonWorldInfo;
+	void* mDungeonWorldInfo;
 	std::string m_name;
 	unsigned int m_flags;
 	unsigned short m_baseWeatherType;
@@ -46,9 +49,11 @@ public:
 	int m_blasters;
 	int m_robots;
 	int m_StorageBoxExtreme;
+	int pad3;
 	Tile* m_pJammerTile;
 	Tile* m_pWorldLockTile;
 	int m_lockCount;
+	int pad4;
 	Tile* m_pZombieJammerTile;
 	Tile* m_pDropJammerTile;
 	Tile* m_pGravityJammerTile;
@@ -81,8 +86,10 @@ public:
 	Tile* m_pDataTile;
 	Tile* m_pMainDoor;
 	bool m_IsTilesDirty;
+	char pad5[0x3];
 	unsigned int m_TilesDirtyVersion;
 	bool m_magplantCountDirty;
+	char pad6[0x3];
 	int m_magplantCount;
 	Tile* m_pPVEBossSwitch;
 	char mDungeonNPCList[0x14B08]; // absolute bullshit garbage why the FUCK is this so big???????
@@ -90,12 +97,16 @@ public:
 	std::list<Tile*> m_AnzuTiles;
 	Tile* m_pAirshipBaseTile;
 	bool m_mapLoaded;
+	char pad7[0x7];
 	Tile* starDataTile;
 	int entityID;
+	int pad8;
 	char m_particleSystem[0xA8];
 	char m_renderObjects[0x80];
 	char mEntityManager[0x50];
 	char mComponentManagersContainer[0x20];
-};
 
-static_assert(sizeof(World) != 0x150C0);
+};
+#pragma pack(pop)
+
+static_assert(sizeof(World) == 0x150C0);

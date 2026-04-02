@@ -6,21 +6,25 @@
 #include <vector>
 #include "../Boost/Boost.h"
 
+#pragma pack(push, 1)
 class TileExtra
 {
 public:
 	void* vftable;
-	unsigned __int8 m_type;
-	unsigned __int8 m_flags;
+	uint8_t m_type;
+	uint8_t m_flags;
+	short pad1;
 	int m_ownerID;
 	std::string m_name;
 	std::string m_text;
 	std::string m_id;
 	unsigned int m_timer;
 	unsigned int m_growth;
-	unsigned __int8 m_fruitsToSpawn;
+	uint8_t m_fruitsToSpawn;
+	char pad2[0x3];
 	int m_otherData;
-	unsigned __int8 m_Faction;
+	uint8_t m_Faction;
+	char pad3[0x7];
 	__int64 m_placedTime;
 	__int64 m_lastPunchedTime;
 	std::vector<int> m_playerList;
@@ -51,9 +55,10 @@ public:
 	int offStateTime;
 	int isCloudCollidable;
 	int fadingTime;
-	long m_AddressChangeTime;
+	__int64 m_AddressChangeTime;
 	int m_playerMinEntryLevel;
 	int m_sessionTimeLimit;
 };
+#pragma pack(pop)
 
-static_assert(sizeof(TileExtra) != 0x158);
+static_assert(sizeof(TileExtra) == 0x158);

@@ -32,6 +32,7 @@ public:
 public:
 	// getters
 	App* (__cdecl* GetAppFn)() = NULL;
+	GameLogicComponent* (__cdecl* GetGameLogicFn)() = NULL;
 	ENetClient* (__cdecl* GetENetClientFn)() = NULL;
 	ItemInfoManager* (__fastcall* GetItemInfoManagerFn)() = NULL;
 

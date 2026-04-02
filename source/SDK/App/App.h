@@ -12,23 +12,23 @@ class App : BaseApp
 {
 public:
 	bool m_enableInventoryTab;
-	void* pad1;
+	char pad1[0x7];
 	char m_audioCache[0x58];
 	ENetClient* m_pENetClient;
 	bool m_bForceUsingMainServer;
-	void* pad2;
-	std::unique_ptr<void*> m_globalLog;
+	char pad2[0x7];
+	void* m_globalLog;
 	bool m_bDidPostInit;
-	void* pad3;
+	char pad3[0x7];
 	char m_varDB[0x90];
 	bool m_bAutomated;
-	void* pad4;
+	char pad4[0x7];
 	std::string m_serverURLOverride;
 	int m_serverPortOverride;
 	int m_hashOverride;
 	std::string mWebLoginDomainOverride;
 	bool m_bTalkTest;
-	void* pad5;
+	char pad5[0x7];
 	char m_frameOverlaySurf[0x78];
 	char m_invSelectSurf[0x78];
 	char m_gridOverlaySurf[0x78];
@@ -43,7 +43,7 @@ public:
 	bool m_bUsingBeta2Server;
 	bool m_bUsingBeta3Server;
 	bool m_bUsingModBetaFiles;
-	void* pad6;
+	char pad6[0x7];
 	std::string m_choose_world_music;
 	int m_serverProtocol;
 	int pad7;
@@ -65,14 +65,14 @@ public:
 	unsigned int m_RightUIsSwitch;
 	unsigned int m_LeftUIsSwitch;
 	int pad11;
-	std::unique_ptr<void> m_pAnzuManager;
+	void* m_pAnzuManager;
 	bool m_enableMsgIcon;
 	char pad12[0x3];
 	int nextUpdateForStopData;
-	std::unique_ptr<void*> helpShiftAdapter;
-	std::unique_ptr<void*> ironSourceAdapter;
-	std::unique_ptr<void*> appReviewAdapter;
-	std::unique_ptr<void*> firebaseCloudMessagingAdapter;
+	void* helpShiftAdapter;
+	void* ironSourceAdapter;
+	void* appReviewAdapter;
+	void* firebaseCloudMessagingAdapter;
 	bool m_enableInventoryTabExculseMobile;
 	bool m_usingStoreNavigation;
 	bool m_usingIgnoreSeal;
@@ -103,4 +103,4 @@ public:
 };
 #pragma pack(pop)
 
-static_assert(sizeof(App) != 0x1300);
+static_assert(sizeof(App) == 0x1300);

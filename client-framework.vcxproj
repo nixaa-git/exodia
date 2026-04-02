@@ -460,6 +460,7 @@
     <ClInclude Include="source\hooks\Struct.h" />
     <ClInclude Include="source\SDK\App\BaseApp.h" />
     <ClInclude Include="source\SDK\App\ItemInfoManager.h" />
+    <ClInclude Include="source\SDK\App\NetAvatar.h" />
     <ClInclude Include="source\SDK\App\NetObjectManager.h" />
     <ClInclude Include="source\SDK\Boost\Boost.h" />
     <ClInclude Include="source\SDK\Clanlib\Clanlib.h" />

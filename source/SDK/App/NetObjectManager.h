@@ -3,8 +3,7 @@
 #include <map>
 #include <list>
 #include <vector>
-
-class NetAvatar {};
+#include "NetAvatar.h"
 
 class NetObjectManager
 {

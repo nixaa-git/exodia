@@ -33,6 +33,7 @@ void SDK::SetupFunctions()
 	this->LogToConsoleFn = m_procModule.FindPattern("E8 ? ? ? ? 32 C0 48 83 C4 ? C3 B9", "LogToConsole").Relative().Get<decltype(LogToConsoleFn)>();
 	this->GetAppFn = m_procModule.FindPattern("E8 ? ? ? ? 48 8B C8 44 0F B6 C3 8B D6", "GetApp").Relative().Get<decltype(GetAppFn)>();
 	this->GetENetClientFn = m_procModule.FindPattern("E8 ? ? ? ? 89 74 24 28", "GetENetClient").Relative().Get<decltype(GetENetClientFn)>();
+	this->GetGameLogicFn = m_procModule.FindPattern("E8 ? ? ? ? 44 38 A8 10 03 00 00", "GetGameLogic").Relative().Get<decltype(GetGameLogicFn)>();
 	this->GetItemInfoManagerFn = m_procModule.FindPattern("E8 ? ? ? ? 48 8B C8 8B D3 E8 ? ? ? ? 48 8B 5C 24 20", "GetItemInfoManager").Relative().Get<decltype(GetItemInfoManagerFn)>();
 	this->BaseAppSetFPSLimitFn = m_procModule.FindPattern("E8 ? ? ? ? E8 ? ? ? ? 8D 48 FE", "BaseApp::SetFPSLimit").Relative().Get<decltype(BaseAppSetFPSLimitFn)>();
 
